@@ -30,11 +30,11 @@ const updateBreaches = (state, newBreaches) => {
             return (newBreach["name"] === oldBreach["name"] &&
                 newBreach["breach_date"].getTime() == oldBreach["breach_date"].getTime())
         })
-        if(index != -1){
+        if (index != -1) {
             console.log(index)
             Vue.set(state.breaches, index, newBreach);
         }
-        else{
+        else {
             state.breaches.push(newBreach);
         }
     })
@@ -54,8 +54,13 @@ const loadBreaches = async (state, emailObj) => {
 
         updateBreaches(state, breachList);
         const index = state.emailObjects.indexOf(emailObj);
-        let breachNameList = breachList.map(obj => obj.name);
-        Vue.set(state.emailObjects[index], "breaches", breachNameList );
+        let breachNameList = breachList.map(obj => {
+            return {
+                "name": obj.name,
+                "breach_date": obj.breach_date
+            }
+        });
+        Vue.set(state.emailObjects[index], "breaches", breachNameList);
         localStorage.setItem('emailObjects', JSON.stringify(state.emailObjects));;
         localStorage.setItem('breaches', JSON.stringify(state.breaches));;
         console.log(window.store);

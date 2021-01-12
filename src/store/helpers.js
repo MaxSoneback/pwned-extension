@@ -1,6 +1,5 @@
 const mergeByProperties = (a, b, prop) => {
   var reduced = a.filter((aitem) => {
-    console.log()
     return !b.find((bitem) => {
       return aitem[prop] === bitem[prop];
     });
