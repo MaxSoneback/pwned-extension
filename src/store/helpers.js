@@ -23,7 +23,15 @@ const createBreachObject = (data) => {
   }
 }
 
+const parseDate = (key, val) => {
+  if (key.includes("date")) {
+    return new Date(val);
+  }
+  return val;
+}
+
 export default {
   mergeByProperties,
-  createBreachObject
+  createBreachObject,
+  parseDate
 }

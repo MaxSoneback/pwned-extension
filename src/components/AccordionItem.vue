@@ -1,5 +1,5 @@
 <template>
-  <vsa-item>
+  <vsa-item v-show="typeof this.emailObject !== 'undefined'">
     <vsa-heading>
       <div class="flex flex-row">
       <div class="p-3">
@@ -22,7 +22,7 @@
 export default {
   name: "Accordion",
   props: {
-    email: String
+    emailObject: Object
   },
   mounted() {
   },
@@ -32,6 +32,10 @@ export default {
     }
   },
   computed: {
+    email: function() {
+      console.log(this.emailObject)
+      return this.emailObject.email
+    },
     name: function() {
       return this.capitalizeFirstLetter(this.email.split('@')[0])
     },

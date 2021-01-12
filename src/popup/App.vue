@@ -1,7 +1,11 @@
 <template>
   <div class="w-full h-full overlay pt-1">
-    <top-logo class="mb-1" />
-    <span class="float-right absolute" @click="addEmail">+</span>
+   <div class="header flex">
+     <div class="w-1/4" @click="clearState">-
+     </div>
+     <top-logo class="mb-1 flex-grow" />
+     <button class="text-lg w-1/4 justify-center" @click="addEmail">+</button>
+   </div>
     <accordion />
   </div>
 </template>
@@ -23,6 +27,9 @@ export default {
   methods: {
     addEmail: function() {
       window.store.commit('addEmail', "metalizzer@hotmail.com")
+    },
+    clearState: function() {
+      window.store.commit('clearState')
     }
   }
 };

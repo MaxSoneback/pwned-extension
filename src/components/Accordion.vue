@@ -1,20 +1,26 @@
 <template>
- <vsa-list>
-  <accordion-item v-for="email in this.emails"
-  :email=email
-  :key=email />
+ <vsa-list v-if="typeof this.emailObjects !== 'undefined'">
+  <accordion-item v-for="emailObject in this.emailObjects"
+  :key=emailObject.email
+  :emailObject=emailObject />
 </vsa-list>
 </template>
 
 <script>
 import AccordionItem from './AccordionItem.vue';
+import getters from "@/store/getters.js"
 export default {
   components: { AccordionItem },
   name: "Accordion",
-  props: {
-    emails: Array
-  },
   computed: {
+    emailObjects: function() {
+      return window.store.getters.emailObjects
+    }
+  },
+  watch: {
+    emailObjects(newEmail, oldEmail) {
+      console.log(newEmail)
+    }
   }
 };
 </script>
