@@ -51,7 +51,8 @@ export default {
       return this.emailObject.email;
     },
     breaches: function() {
-      return this.emailObject.breaches.sort((a, b) => b.breach_date - a.breach_date);
+      let sorted = [...this.emailObject.breaches].sort((a, b) => b.breach_date - a.breach_date);
+      return sorted;
     },
     name: function () {
       return this.capitalizeFirstLetter(this.email.split("@")[0]);
@@ -84,5 +85,15 @@ p {
     background: -ms-linear-gradient(-45deg,#320f0f 0,#ba4343 100%);
     background: linear-gradient(135deg,#320f0f 0,#ba4343 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#320f0f',endColorstr='#ba4343',GradientType=1);
+}
+.btn-info{
+   background-color:  #265472;
+}
+.btn-info:not(:disabled):not(.disabled):active, 
+.btn-info:not(:disabled):not(.disabled).active, 
+.btn-info:hover,
+.btn-info:focus,
+.show > .btn-info.dropdown-toggle {
+  background-color: #578aac;
 }
 </style>

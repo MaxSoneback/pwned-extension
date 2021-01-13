@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     fontFamily: {
       main: ["Glacial Indifference", "sans-serif"],
-      sans: ["sans-serif"],
+      sans: ["sans-serif"]
     },
-    extend: {},
+    extend: {}
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 };

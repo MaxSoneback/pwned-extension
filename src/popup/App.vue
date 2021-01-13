@@ -4,8 +4,8 @@
       <div class="header flex">
         <div class="w-1/4" @click="clearState">-</div>
         <top-logo class="mb-1 flex-grow" />
-        <button class="text-lg w-1/4 justify-center" @click="addEmail">
-          +
+        <button class="m-auto text-lg w-1/4 justify-center" @click="addEmail">
+        <b-icon icon="plus-circle" />
         </button>
       </div>
       <div class="accordion" role="tablist">
@@ -26,24 +26,26 @@ import EmailAccordionItem from "@/components/EmailAccordionItem.vue";
 export default {
   name: "App",
   components: { TopLogo, EmailAccordionItem },
-  data: function () {
+  data: function() {
     return {};
   },
   beforeMount() {
     window.store.commit("initStore");
   },
   methods: {
-    addEmail: function () {
+    addEmail: function() {
       window.store.commit("addEmail", "metalizzer@hotmail.com");
     },
-    clearState: function () {
+    clearState: function() {
       window.store.commit("clearState");
-    },
+    }
   },
   computed: {
-    emailObjects: function () {
-      return window.store.getters.emailObjects.sort((a,b) => b.email - a.email )
-  }
+    emailObjects: function() {
+      return window.store.getters.emailObjects.sort(
+        (a, b) => b.email - a.email
+      );
+    }
   }
 };
 </script>

@@ -1,18 +1,18 @@
 <template>
-<div class="flex justify-center">
-    <span class="text-lg rounded-xl border-2 border-white p-1 object-center bg-opacity-25">
+  <div class="flex justify-center">
+    <span
+      class="text-lg rounded-xl border-2 border-white p-1 object-center bg-opacity-25"
+    >
       ';--have i been pwned?
     </span>
-    </div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "TopLogo",
-  mounted() {
-  },
-  computed: {
-  }
+  mounted() {},
+  computed: {}
 };
 </script>
 

@@ -2,7 +2,12 @@
   <b-card no-body class="mb-0 bg-white-500 opac shadow-lg">
     <b-card-header header-tag="header" class="p-1 flex" role="tab">
       <b-img :src="breach.logo_path" class="w-1/6 pr-2 object-contain" />
-      <b-button block class="text-left border-transparent bg-transparent" v-b-toggle="`breach-accordion-${this.id}`" variant="danger">
+      <b-button
+        block
+        class="text-left border-transparent bg-transparent"
+        v-b-toggle="`breach-accordion-${this.id}`"
+        variant="danger"
+      >
         <div class="flex flex-col text-sm">
           <p class="font-bold">
             {{ breach.title }}
@@ -11,7 +16,7 @@
             {{ this.dayMonthYear }}
           </p>
           <p class="pb-1 text-sm text-opacity-25 font-thin">
-            <strong>Compromised data:</strong> {{this.compromisedData}}
+            <strong>Compromised data:</strong> {{ this.compromisedData }}
           </p>
         </div>
       </b-button>
@@ -32,12 +37,12 @@
 export default {
   name: "BreachAccordionItem",
   props: {
-    breachObj: Object,
+    breachObj: Object
   },
   mounted() {},
   methods: {},
   computed: {
-    breach: function () {
+    breach: function() {
       return window.store.getters.getBreachByProps(
         "name",
         this.breachObj.name,
@@ -45,25 +50,25 @@ export default {
         this.breachObj.breach_date
       );
     },
-    breachDate: function () {
+    breachDate: function() {
       return this.breach.breach_date;
     },
-    name: function () {
+    name: function() {
       return this.breach.name;
     },
-    dayMonthYear: function () {
+    dayMonthYear: function() {
       var month = this.breachDate.getUTCMonth() + 1; //months from 1-12
       var day = this.breachDate.getUTCDate();
       var year = this.breachDate.getUTCFullYear();
       return `${day}/${month}/${year}`;
     },
-    id: function () {
+    id: function() {
       return `${this.name}-${this.dayMonthYear}`;
     },
     compromisedData: function() {
-      return this.breach.data_classes.join(', ')
+      return this.breach.data_classes.join(", ");
     }
-  },
+  }
 };
 </script>
 
@@ -75,11 +80,11 @@ p {
 .opac {
   background-color: rgba(255, 255, 255, 0);
 }
-.card-header{
+.card-header {
   border-bottom: none;
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
 }
-.card-body >>> a{
+.card-body >>> a {
   color: #fff !important;
   font-weight: 700 !important;
 }

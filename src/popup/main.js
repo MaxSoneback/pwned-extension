@@ -11,9 +11,9 @@ global.browser = require("webextension-polyfill");
 Vue.prototype.$browser = global.browser;
 
 //Vue.use(VueSimpleAccordion, Vuex);
-Vue.use(Vuex) 
-Vue.use(BootstrapVue) 
-Vue.use(IconsPlugin)
+Vue.use(Vuex);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 /* eslint-disable no-new */
 new Vue({
