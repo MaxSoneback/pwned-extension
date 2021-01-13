@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     addEmail: function () {
-      window.store.commit("addEmail", "maxsoneback@hotmail.com");
+      window.store.commit("addEmail", "metalizzer@hotmail.com");
     },
     clearState: function () {
       window.store.commit("clearState");
@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     emailObjects: function () {
-      return window.store.getters.emailObjects
+      return window.store.getters.emailObjects.sort((a,b) => b.email - a.email )
   }
   }
 };
@@ -93,7 +93,7 @@ export default {
 html {
   --custom-color-1: #0f1932;
   --custom-color-2: #45acbf;
-  width: 400px;
+  width: 500px;
   height: 400px;
   background: -moz-linear-gradient(
     -45deg,

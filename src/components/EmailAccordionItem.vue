@@ -21,8 +21,8 @@
       accordion="email-accordion"
       role="tabpanel"
     >
-      <b-card-body>
-        <div class="accordion" role="tablist">
+      <b-card-body class="p-1 pwnedRow">
+        <div class="accordion¨bg-opacity-0" role="tablist">
   <breach-accordion-item v-for="breach in this.breaches"
   :key="`${breach.name}-${breach.breach_date}`"
   :breachObj=breach />
@@ -51,7 +51,7 @@ export default {
       return this.emailObject.email;
     },
     breaches: function() {
-      return this.emailObject.breaches;
+      return this.emailObject.breaches.sort((a, b) => b.breach_date - a.breach_date);
     },
     name: function () {
       return this.capitalizeFirstLetter(this.email.split("@")[0]);
@@ -74,5 +74,15 @@ export default {
 <style scoped>
 p {
   font-size: 20px;
+}
+
+.pwnedRow {
+    background: -moz-linear-gradient(-45deg,#320f0f 0,#ba4343 100%);
+    background: -webkit-gradient(linear,left top,right bottom,color-stop(0,#320f0f),color-stop(100%,#ba4343));
+    background: -webkit-linear-gradient(-45deg,#320f0f 0,#ba4343 100%);
+    background: -o-linear-gradient(-45deg,#320f0f 0,#ba4343 100%);
+    background: -ms-linear-gradient(-45deg,#320f0f 0,#ba4343 100%);
+    background: linear-gradient(135deg,#320f0f 0,#ba4343 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#320f0f',endColorstr='#ba4343',GradientType=1);
 }
 </style>
